@@ -1,55 +1,57 @@
 {
   "title": "Cookies & Cache",
-  "intro": "Dock 23. A missing shipment. A crew too nervous to go to the cops. That’s where I come in — one gumshoe against a tide of lies. I start where the trail goes cold: a forgotten dockhouse under cover of fog.",
-  "clues": [
+  "intro": "Dock 23. Late night. Something doesn't smell right, and it's not just the fish market. A shipment went missing, and you're the only one smart enough to follow the crumbs.",
+  "overview": "As a private eye, you often get hired to look into things the police usually won’t. Like a missing shipment of guns from the DeadLock Crew. It appears from the sparse information I was given (as usual), it’s not surprising that one of the local mobs doesn’t want the police involved. I should start my search where the shipment vanished, looks like we are visiting dock 23.",
+  "settings": [
     {
-      "id": 1,
-      "text": "A crowbar stashed beneath the dumpster outside. Someone wanted in without a key — and forgot their tool."
+      "name": "Setting #1: Outside a dock house like in San Francisco",
+      "interactables": [
+        "Locked door (player needs a crowbar to open the door)",
+        "Tire tracks (showcases the truck did leave the warehouse)",
+        "Searchable dumpster (Contains crowbar needed to jam open door)"
+      ]
     },
     {
-      "id": 2,
-      "text": "Tire tracks fresh in the dirt. A truck definitely left the dock, but what was in it?"
+      "name": "Setting #2: Inside the dock house facing towards the door",
+      "interactables": [
+        "Shipping terminal (needs password. Shows where the scheduled shipment was supposed to go. Main character makes remark about how they put the 'organized' into organized crime)",
+        "Sticky note left on computer (contains login information)",
+        "Digital truck scale (shows logs of the weight of the trucks before each shipment. Reveals that the last truck was extremely light compared to the others.)",
+        "Hallway (leads to the back half of the warehouse)"
+      ]
     },
     {
-      "id": 3,
-      "text": "Shipping terminal login screen waits inside. Nearby? A sticky note taped to the monitor — 'pass123'. Real secure, boys."
+      "name": "Setting #3: Inside the dock house facing towards the back",
+      "interactables": [
+        "Hallway (leads to the front half of the warehouse)",
+        "Office (contains more clues in the next room)"
+      ]
     },
     {
-      "id": 4,
-      "text": "The scale logs don’t lie — that final truck left the warehouse nearly empty. Light as a feather, heavy with suspicion."
-    },
-    {
-      "id": 5,
-      "text": "In the back office, a computer still logged in. Cookies saved from the last session. Someone forgot to wipe their secrets clean."
-    },
-    {
-      "id": 6,
-      "text": "Emails confirm the worst: the guy in charge of the shipments? A rat. He's selling the guns to a rival crew for twice the price."
-    },
-    {
-      "id": 7,
-      "text": "A photo on the desk with a date — turns out it's the password to the back office computer. Guess even crooks get nostalgic."
-    }
-  ],
-  "choices": [
-    {
-      "prompt": "You've got the evidence. Now what do you do?",
-      "options": [
-        {
-          "text": "Report back to your client — the DeadLock Crew.",
-          "result": "The crew thanks you with a wad of cash and a silent nod. What they do with the info? Not your concern. But there will be blood."
-        },
-        {
-          "text": "Turn everything over to the cops.",
-          "result": "You drop a tip from a payphone and vanish. The raid hits the next morning. Headlines scream of seizures and scandals."
-        },
-        {
-          "text": "Sell the info to a rival gang.",
-          "result": "You name a price and walk away rich. The shipment never moves. The warehouse doesn’t survive the night."
-        }
+      "name": "Setting #4: Inside the office",
+      "interactables": [
+        "Filing cabinets (inside is a written report on the amount of guns that have entered the warehouse)",
+        "Photograph on the desk (has a date written on it)",
+        "Computer on the desk (After breaking into the computer using the date on the photograph, the player can login to the email of the last user, due to remaining cookies from the last session)",
+        "Email exchange inside computer (Email chain showing that the current person in charge of the shipments is a turncoat. They are planning on selling the weapons in the shipment and everything in the warehouse to a rival gang.)"
       ]
     }
   ],
-  "tip": "Even saved cookies can betray their owner. Never leave a logged-in session behind — it's like handing over your keys to a thief.",
+  "key_point": "The weapons never left the warehouse (hence the light truck and the selling plan).",
+  "choices": [
+    {
+      "text": "Do as Hired. Report back to the gang the information you have found.",
+      "result": "The DeadLock Crew nods and pays up. What they do with the traitor? Not your problem."
+    },
+    {
+      "text": "Good Citizen. Report the weapon shipment/turncoat information to the police.",
+      "result": "Anonymous tips lead to sirens in the night. You watch from the shadows, conscience clean."
+    },
+    {
+      "text": "Sellout. Sell the information to a rival gang, enabling them to steal the shipment.",
+      "result": "You get your payday — and they get the drop. The dock never sees another shipment again."
+    }
+  ],
+  "tip": "Never leave cookies behind — they remember everything you've done. One forgotten login is all it takes for someone to get inside your life.",
   "dialogue": ["c2_d0", "c2_d1", "c2_d2", "c2_d3"]
 }
