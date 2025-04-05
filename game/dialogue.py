@@ -90,7 +90,29 @@ dialogues["gone_phishing"] = {
         ]
     }
 }
-
+dialogues["big_brother"] = {
+"bb_d0": {
+    "speaker": "Narrator",
+    "lines": [
+        "It was a Wednesday—the kind where the rain taps like a snitch with a secret. I was nursing cold coffee when she walked in. Maya Hernandez. Movie star. Trouble wrapped in lipstick and heels.",
+        "She didn’t sit. She hovered, as if she didn’t trust the chair, or maybe just the situation."
+    ]
+},
+"bb_d1": {
+    "speaker": "Maya Hernandez",
+    "lines": [
+        "I received a letter—anonymous. It quoted something I said on the phone. Something I never said out loud to anyone else.",
+        "Whoever it is... they knew where I was. What I said. What I fear."
+    ]
+},
+"bb_d2": {
+    "speaker": "Narrator",
+    "lines": [
+        "A blackmail attempt. But not your usual paper-cutout psychopath. This one had tech. Access. And maybe a uniform.",
+        "I lit a fresh cigarette. Time to follow the wires and find the eye behind the glass."
+    ]
+}
+}
 
 def get_dialogue(case_id, dialogue_id):
     """
