@@ -1,0 +1,46 @@
+{
+  "title": "Big Brother",
+  "intro": "Not every day you get hired to find the stalker instead of being the stalker. But when Maya Hernandez walks into your office, famous smile and all, you listen. She received a ransom-note-style letter—anonymous, threatening, and paired with a transcript of a private phone call. Someone’s watching, and they want her silence paid for.",
+  "settings": [
+    {
+      "name": "Inside Mr. Noir's Office",
+      "sequential": true,
+      "interactables": [
+        "You ask Maya when she got into town: 'Around five days ago,' she replies.",
+        "You ask where she’s staying: 'Downtown. Some boutique hotel—small, discreet.'",
+        "You ask where the phone call was made: 'My hotel room. I was trying to find a local speakeasy.'",
+        "You ask if she suspects anyone: 'No...maybe a few people I’ve crossed, but nothing like this.'"
+      ]
+    },
+    {
+      "name": "Maya's Hotel Room",
+      "sequential": true,
+      "interactables": [
+        "You investigate Maya's hotel room: you find scruffs on the floor near the dresser—too regular to be accidental.",
+        "You open the nightstand: a Bible. Standard hotel fare. No clues there.",
+        "You glance down the hallway: the cleaning cart across the hall has a small toolbox. Screwdrivers. Unusual.",
+        "You inspect the air vents: something metallic catches your eye. A surveillance bug, carefully tucked away.",
+        "You wait in the hallway after searching: a man in a janitor’s uniform approaches the door with a copy of the room key..."
+      ]
+    }
+  ],
+  "choices": [
+    {
+      "text": "Do as Hired. Report the stalker's identity back to Maya.",
+      "result": "You tell Maya the truth. She’s shaken—but thankful. She handles it quietly. You never hear from the stalker again.",
+      "tip": "Sometimes, privacy violations come from within the systems we trust—like staff with unchecked access."
+    },
+    {
+      "text": "Good Citizen. Report the stalker to the police, risking Maya's reputation.",
+      "result": "The cops crack down on the stalker—and investigate the hotel’s lax security. Maya’s story leaks, but she’s safer for it.",
+      "tip": "Always consider the bigger picture. Silence may protect reputation, but not always safety."
+    },
+    {
+      "text": "Sell out. Blackmail the stalker instead.",
+      "result": "You confront the man in the uniform. He folds fast, and pays faster. It’s dirty money—but clean enough to spend.",
+      "tip": "Extortion is still a crime—even if you're extorting a criminal."
+    }
+  ],
+  "tip": "When physical access and digital access meet, privacy becomes porous. Trust your instincts—and your vents.",
+  "dialogue": ["bb_d0", "bb_d1", "bb_d2"]
+}
