@@ -1,38 +1,39 @@
 {
   "title": "Cookies & Cache",
-  "overview": "As a private eye, you often get hired to look into things the police usually won’t...\n[full overview text goes here]",
+  "intro": "Dock 23. A missing shipment. A crew too nervous to go to the cops. That’s where I come in — one gumshoe against a tide of lies. I start where the trail goes cold: a forgotten dockhouse under cover of fog.",
+  "overview": "As a private eye, you often get hired to look into things the police usually won’t. This time? A missing shipment of guns from the DeadLock Crew. No surprise that a mob doesn’t want uniforms poking around. Dock 23 — that's where the guns vanished. Time to start digging.",
   "settings": [
     {
-      "name": "Outside a dock house like in San Francisco",
+      "name": "outside a dock house in san francisco",
       "interactables": [
-        "Locked door (player needs a crowbar to open the door)",
-        "Tire tracks (showcases the truck did leave the warehouse)",
-        "Searchable dumpster (Contains crowbar needed to jam open door)"
+        "You investigate outside a dock house in san francisco: you find a locked door that needs a crowbar to open.",
+        "You investigate outside a dock house in san francisco: you find tire tracks showing a truck left the warehouse.",
+        "You investigate outside a dock house in san francisco: you find a searchable dumpster containing a crowbar."
       ]
     },
     {
-      "name": "Inside the dock house facing towards the door",
+      "name": "inside the dock house facing the door",
       "interactables": [
-        "Shipping terminal (needs password. Shows where the scheduled shipment was supposed to go...)",
-        "Sticky note left on computer (contains login information)",
-        "Digital truck scale (logs of the weight of the trucks...)",
-        "Hallway (leads to the back half of the warehouse)"
+        "You investigate inside the dock house facing the door: you find a shipping terminal that needs a password.",
+        "You investigate inside the dock house facing the door: you find a sticky note on the computer with login info.",
+        "You investigate inside the dock house facing the door: you find a digital scale showing the last truck was unusually light.",
+        "You investigate inside the dock house facing the door: you find a hallway leading to the back of the warehouse."
       ]
     },
     {
-      "name": "Inside the dock house facing towards the back",
+      "name": "inside the dock house facing the back",
       "interactables": [
-        "Hallway (leads to the front half of the warehouse)",
-        "Office (contains more clues in the next room)"
+        "You investigate inside the dock house facing the back: you find a hallway leading back to the front.",
+        "You investigate inside the dock house facing the back: you find a door to a nearby office."
       ]
     },
     {
-      "name": "Inside the office",
+      "name": "inside the office",
       "interactables": [
-        "Filing cabinets (written report on the amount of guns...)",
-        "Photograph on the desk (has a date written on it)",
-        "Computer on the desk (player can log into the email...)",
-        "Email exchange (turncoat revealed planning to sell weapons)"
+        "You investigate inside the office: you find filing cabinets containing a weapons report.",
+        "You investigate inside the office: you find a photograph with a date — likely a password.",
+        "You investigate inside the office: you find a computer still logged in via saved cookies.",
+        "You investigate inside the office: you find an email chain revealing the turncoat's deal."
       ]
     }
   ],
@@ -41,17 +42,17 @@
     {
       "text": "Do as Hired. Report back to the gang the information you have found.",
       "result": "The DeadLock Crew nods and pays up. What they do with the traitor? Not your problem.",
-      "tip": "Sometimes doing the job means ignoring the fallout. Don’t mistake loyalty for safety."
+      "tip": "Never leave cookies behind — they remember everything you've done. One forgotten login is all it takes for someone to get inside your life."
     },
     {
       "text": "Good Citizen. Report the weapon shipment/turncoat information to the police.",
       "result": "Anonymous tips lead to sirens in the night. You watch from the shadows, conscience clean.",
-      "tip": "Doing the right thing doesn't always mean staying safe — but at least you sleep better."
+      "tip": "Even anonymous tips can protect others — especially when lives are on the line."
     },
     {
       "text": "Sellout. Sell the information to a rival gang, enabling them to steal the shipment.",
       "result": "You get your payday — and they get the drop. The dock never sees another shipment again.",
-      "tip": "When money talks, morals walk. But blood has a way of finding its way back to your door."
+      "tip": "Information is currency — but trading in secrets means someone always pays the price."
     }
   ],
   "dialogue": ["c2_d0", "c2_d1", "c2_d2", "c2_d3"]

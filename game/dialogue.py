@@ -58,6 +58,38 @@ dialogues = {
         }
     }
 }
+dialogues["gone_phishing"] = {
+    "c2_d0": {
+        "speaker": "Narrator",
+        "lines": [
+            "Another missing person.",
+            "More and more people are vanishing in this city these days.",
+            "I doubt this case is going anywhere, but it’s hard to tell a mother that she will most likely never see her child again."
+        ]
+    },
+    "c2_d1": {
+        "speaker": "You",
+        "lines": [
+            "Luckily, we’ve got a little more to start with than most.",
+            "The mother was willing to let me into her daughter’s computer.",
+            "Let's pray there’s some sort of lead to find in there."
+        ]
+    },
+    "c2_d2": {
+        "speaker": "Narrator",
+        "lines": [
+            "The desktop lights up with a glow that’s too clean for this kind of dirty work.",
+            "Apps scattered, files renamed, but something’s off—too off."
+        ]
+    },
+    "c2_d3": {
+        "speaker": "You",
+        "lines": [
+            "Let’s dig through the inbox, check the social feed, and peek inside the trash.",
+            "Somewhere in this digital mess is the key to where Hannah went—and who took her."
+        ]
+    }
+}
 
 
 def get_dialogue(case_id, dialogue_id):

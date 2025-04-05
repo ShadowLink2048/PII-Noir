@@ -1,72 +1,75 @@
 {
-    "title": "'Gone Phishing'",
-    "intro": "Another missing person, seems more and more people are going missing in this city these days. I doubt this case is going anywhere, but it is hard to tell a mother that she will most likely never see her child again. Lukily, we got a little more to start with than most cases: the mother was willing to let me into her daughter's computer. Let's pray there is some sort of lead to find.",
-    "settings": [
-      {
-        "name": "Setting #1: On the Desktop Computer",
-        "interactables": [
-          "Email app (leads to email inbox)",
-	        "Social media app (leads to social media page)",
-	        "Trash bin (leads to deleted files)",
-	        "Internet browser (for showing search history)"
-        ]
-      },
-      {
-        "name": "Setting #2: Email Inbox",
-        "interactables": [
-          "Emily has sent you a friend request, click to accept (phishing email)",
-	        "Spring Fashion has just arrived! Come see the new discounts to help you get a fresh look! (AD)",
-	        "Message from Sarah: I shared the group project with you",
-	        "ClickClock premium features can increase your save capacity! Upgrade now to never worry about storage limits!",
-          "Message from Professor Smollt: As I said in class yesterday, I will be unavailable this week due to me being at my father's funeral.",
-	        "NuSkin: Huge Sale on our NuSkin products **UP TO 70% OFF** to help you keep your skin silky smooth"
-        ]
-      },
-      {
-        "name": "Setting #3: Social Media Profile",
-        "interactables": [
-          "**REQUIRED BEFORE OTHER INTERACTIONS: Terms of Service (An exaggerated humerous example of a social media TOS, explicitly stating that they are allowed to harvest all the data you have including but not limited to name, address, birthday, email, social security number, and favorite food)",
-	        "Friends list (all friends and recent invites. Character quips: 'I don't see any recent invites from Emily...')",
-          "Post history (contains a recent post with a geolocation tag)"
-        ]
-      },
-      {
-        "name": "Setting #4: Internet Browser",
-        "interactables": [
-          "how to tell if my computer has a virus",
-	        "how check for computer virus",
-	        "do i have a virus",
-	        "How to tell if I downloaded a virus?",
-	        "why is my computer acting weird",
-	        "How to unsubscribe from a company's emails",
-	        "Fake nails cheap",
-	        "BeeBeauty spring sale",
-	        "NuSkin skin smoother paste",
-	        "Zoom.com"
-          ]
-        },
-        {
-          "name": "Setting #5: Trash Bin",
-          "interactables": [
-            "Image file (vacation-pic.jpg)",
-	          "Folder (Memories)",
-	          "Program (zoom_installer_x64.exe)",
-	          "Mysterious file (data3xf1ltrat3.bat)",
-	          "PDF form (Lab-6b-common-reactions.pdf)"
-          ]
-        }
-    ],
-      "key_point": "Hannah (the victim) clicked on the phishing email. She noticed her computer was acting weird and tried to search the web to fix it. She tried deleting the file but the damage was done. It was spyware that collected her frequented locations from her social media profile. The hacker used this info to conduct a kidnapping.",
-      "choices": [
-        {
-          "text": "Sugar coat the truth.",
-          "result": "Report to the mother of what you found and give her hope. A previous location was found that the police might be able to track."
-        },
-        {
-          "text": "Don't sugar coat the truth.",
-          "result": "Explain to the mother that while the location of the kidnapping is known, the possibility of recovering Hannah is practically zero. It is safe to assume she is dead."
-        }
-      ],
-      "tip": "Protection against malware is proactive, not reactive. Once it gets into the system, you've already lost.",
-      "dialogue": ["c2_d0", "c2_d1", "c2_d2", "c2_d3"]  
+  "title": "Gone Phishing",
+  "intro": "Another missing person. Seems more and more people are vanishing in this city. I doubt this case is going anywhere, but it's hard to tell a mother she’ll never see her child again. Luckily, she let me into her daughter's computer. Let’s hope something is buried in the bits.",
+  "overview": "A potential kidnapping, a trail of digital footprints, and a desperate mother. The daughter’s computer is the only lead.",
+  "settings": [
+    {
+      "name": "Desktop Computer",
+      "interactables": [
+        "Email app (leads to email inbox)",
+        "Social media app (leads to social media page)",
+        "Trash bin (leads to deleted files)",
+        "Internet browser (shows search history)"
+      ]
+    },
+    {
+      "name": "Email Inbox",
+      "interactables": [
+        "Phishing email pretending to be from Emily",
+        "Spring Fashion advertisement spam",
+        "Message from Sarah about group project",
+        "ClickClock storage upgrade upsell",
+        "Professor’s funeral notice",
+        "NuSkin product spam with aggressive sale pitch"
+      ]
+    },
+    {
+      "name": "Social Media Profile",
+      "interactables": [
+        "Terms of Service (humorous but creepy data-harvesting clause)",
+        "Friends list (no sign of recent invite from Emily)",
+        "Post history with a visible geolocation tag"
+      ]
+    },
+    {
+      "name": "Internet Browser",
+      "interactables": [
+        "Search: how to tell if my computer has a virus",
+        "Search: how check for computer virus",
+        "Search: do i have a virus",
+        "Search: How to tell if I downloaded a virus?",
+        "Search: why is my computer acting weird",
+        "Search: how to unsubscribe from emails",
+        "Search: fake nails cheap",
+        "Search: BeeBeauty spring sale",
+        "Search: NuSkin skin smoother paste",
+        "Search: Zoom.com"
+      ]
+    },
+    {
+      "name": "Trash Bin",
+      "interactables": [
+        "Image file (vacation-pic.jpg)",
+        "Folder labeled Memories",
+        "zoom_installer_x64.exe (possibly malicious)",
+        "Mysterious file (data3xf1ltrat3.bat)",
+        "PDF of chemistry lab (Lab-6b-common-reactions.pdf)"
+      ]
+    }
+  ],
+  "dialogue": ["c2_d0", "c2_d1", "c2_d2", "c2_d3"],
+  "choices": [
+    {
+      "text": "Sugar coat the truth.",
+      "result": "You soften the blow. There’s hope — the computer shows a location the police might use to track the kidnapper.",
+      "tip": "Be cautious when accessing public email — phishing can look shockingly legitimate."
+    },
+    {
+      "text": "Don't sugar coat the truth.",
+      "result": "You tell it straight: the spyware traced her. Recovery chances are slim. It’s likely too late.",
+      "tip": "Once spyware is installed, it can monitor everything. Prevention is your best defense."
+    }
+  ],
+  "tip": "Protection against malware is proactive, not reactive. Once it gets into the system, you've already lost.",
+  "key_point": "Hannah clicked a phishing email. The spyware tracked her social media geolocation posts. The kidnapper used that data to plan and execute the abduction."
 }
