@@ -5,6 +5,7 @@
   "settings": [
     {
       "name": "Desktop Computer",
+      "sequential": false,
       "interactables": [
         "Email app (leads to email inbox)",
         "Social media app (leads to social media page)",
@@ -14,6 +15,7 @@
     },
     {
       "name": "Email Inbox",
+      "sequential": false,
       "interactables": [
         "Phishing email pretending to be from Emily",
         "Spring Fashion advertisement spam",
@@ -25,6 +27,7 @@
     },
     {
       "name": "Social Media Profile",
+      "sequential": false,
       "interactables": [
         "Terms of Service (humorous but creepy data-harvesting clause)",
         "Friends list (no sign of recent invite from Emily)",
@@ -33,6 +36,7 @@
     },
     {
       "name": "Internet Browser",
+      "sequential": false,
       "interactables": [
         "Search: how to tell if my computer has a virus",
         "Search: how check for computer virus",
@@ -48,6 +52,7 @@
     },
     {
       "name": "Trash Bin",
+      "sequential": false,
       "interactables": [
         "Image file (vacation-pic.jpg)",
         "Folder labeled Memories",
