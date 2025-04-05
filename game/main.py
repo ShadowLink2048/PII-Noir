@@ -31,34 +31,13 @@ def draw_text(surface, text, x, y, max_width=700, font=FONT, color=WHITE, spacin
         surface.blit(rendered, (x, y))
         y += rendered.get_height() + spacing
 
-    return y  # Return final y value for stacking
+    return y
 
-
-def draw_button(surface, text, rect, color=(100, 100, 100), text_color=WHITE, padding=10):
+def draw_button(surface, text, rect, color=(100, 100, 100), text_color=WHITE):
     pygame.draw.rect(surface, color, rect)
-
-    # Text wrapping logic
-    words = text.split()
-    lines = []
-    line = ""
-
-    for word in words:
-        test_line = f"{line} {word}".strip()
-        if FONT.size(test_line)[0] <= rect.width - 2 * padding:
-            line = test_line
-        else:
-            lines.append(line)
-            line = word
-    lines.append(line)
-
-    total_height = len(lines) * FONT.get_height()
-    y_offset = rect.centery - total_height // 2
-
-    for i, line in enumerate(lines):
-        label = FONT.render(line, True, text_color)
-        label_rect = label.get_rect(centerx=rect.centerx, y=y_offset + i * FONT.get_height())
-        surface.blit(label, label_rect)
-
+    label = FONT.render(text, True, text_color)
+    label_rect = label.get_rect(center=rect.center)
+    surface.blit(label, label_rect)
 
 def load_case(filename):
     with open(filename, "r") as f:
@@ -95,7 +74,7 @@ def main():
                         case_path = f"../data/{case_files[i]}"
                         case_id = os.path.splitext(case_files[i])[0].lower().replace(" ", "_").replace("&", "and")
                         case = load_case(case_path)
-                        clues = case["clues"]
+                        clues = case.get("settings", [])
                         dialogue_ids = case.get("dialogue", [])
                         dialogue_index = 0
                         showing_dialogue = bool(dialogue_ids)
@@ -139,7 +118,7 @@ def main():
                 if dialogue:
                     y = 40
                     y = draw_text(screen, f"{dialogue['speaker']}:", 40, y)
-                    y += 10  # Space between speaker and lines
+                    y += 10
                     for line in dialogue["lines"]:
                         y = draw_text(screen, line, 60, y)
                         y += 5
@@ -150,35 +129,32 @@ def main():
             draw_text(screen, "Press any key or click to continue...", 40, HEIGHT - 40)
 
         elif current_screen == "clues":
-            y = draw_text(screen, "Clues found:", 40, 40)
-            for clue in clues:
-                y = draw_text(screen, f"- {clue['text']}", 60, y)
+            y = draw_text(screen, "Areas Investigated:", 40, 40)
+            for setting in clues:
+                y = draw_text(screen, f"• {setting['name']}", 60, y + 10)
+                for item in setting["interactables"]:
+                    y = draw_text(screen, f"  - {item}", 80, y)
             draw_text(screen, "Press any key or click to continue...", 40, HEIGHT - 40)
 
         elif current_screen == "choices":
-            y = draw_text(screen, case["choices"][0]["prompt"], 40, 40)
+            y = draw_text(screen, "What do you do?", 40, 40)
             button_rects = []
-            for i, option in enumerate(case["choices"][0]["options"]):
+            for i, option in enumerate(case["choices"]):
                 rect = pygame.Rect(60, y + 20 + i * 60, 600, 40)
-                draw_button(screen, f"{i+1}. {option['text']}", rect)
+                draw_button(screen, f"{i + 1}. {option}", rect)
                 button_rects.append(rect)
+
 
         elif current_screen == "result":
             if choice_selected is not None:
-                result_text = case["choices"][0]["options"][choice_selected]["result"]
-                tip_text = case["tip"]
+                result_text = case["choices"][choice_selected].get("result", "")
+                tip_text = case.get("tip", "")
                 y = draw_text(screen, "Result:", 40, 40)
                 y = draw_text(screen, result_text, 60, y + 10)
                 y = draw_text(screen, "Privacy Tip:", 40, y + 30)
                 draw_text(screen, tip_text, 60, y + 10)
-
-                # 🔘 Add back-to-menu button
-                return_rect = pygame.Rect(300, 500, 200, 40)
-                draw_button(screen, "Back to Menu", return_rect)
-                button_rects = [return_rect]
             else:
                 draw_text(screen, "Error: No choice selected.", 40, 40)
-
 
         pygame.display.flip()
         clock.tick(30)

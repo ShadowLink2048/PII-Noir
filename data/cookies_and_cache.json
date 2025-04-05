@@ -1,11 +1,10 @@
 {
   "title": "Cookies & Cache",
-  "intro": "Dock 23. A missing shipment. A crew too nervous to go to the cops. That's where I come in - one gumshoe against a tide of lies. I start where the trail goes cold: a forgotten dockhouse under cover of fog.",
-  "overview": "As a private eye, I often get hired to look into things the police won't. This time? A missing shipment of guns from the DeadLock Crew. No surprise that a mob doesn't want uniforms poking around. Dock 23 - that's where the guns vanished. Time to start digging.",
+  "intro": "Dock 23. A missing shipment. A crew too nervous to go to the cops. That’s where I come in — one gumshoe against a tide of lies. I start where the trail goes cold: a forgotten dockhouse under cover of fog.",
   "clues": [
     {
       "id": 1,
-      "text": "A crowbar stashed beneath the dumpster outside. Someone wanted in without a key - and forgot their tool."
+      "text": "A crowbar stashed beneath the dumpster outside. Someone wanted in without a key — and forgot their tool."
     },
     {
       "id": 2,
@@ -13,11 +12,11 @@
     },
     {
       "id": 3,
-      "text": "Shipping terminal login screen waits inside. Nearby? A sticky note taped to the monitor - 'pass123'. Real secure, boys."
+      "text": "Shipping terminal login screen waits inside. Nearby? A sticky note taped to the monitor — 'pass123'. Real secure, boys."
     },
     {
       "id": 4,
-      "text": "The scale logs don't lie - that final truck left the warehouse nearly empty. Light as a feather, heavy with suspicion."
+      "text": "The scale logs don’t lie — that final truck left the warehouse nearly empty. Light as a feather, heavy with suspicion."
     },
     {
       "id": 5,
@@ -29,7 +28,7 @@
     },
     {
       "id": 7,
-      "text": "A photo on the desk with a date - turns out it's the password to the back office computer. Guess even crooks get nostalgic."
+      "text": "A photo on the desk with a date — turns out it's the password to the back office computer. Guess even crooks get nostalgic."
     }
   ],
   "choices": [
@@ -37,7 +36,7 @@
       "prompt": "You've got the evidence. Now what do you do?",
       "options": [
         {
-          "text": "Report back to your client - the DeadLock Crew.",
+          "text": "Report back to your client — the DeadLock Crew.",
           "result": "The crew thanks you with a wad of cash and a silent nod. What they do with the info? Not your concern. But there will be blood."
         },
         {
@@ -46,16 +45,11 @@
         },
         {
           "text": "Sell the info to a rival gang.",
-          "result": "You name a price and walk away rich. The shipment never moves. The warehouse doesn't survive the night."
+          "result": "You name a price and walk away rich. The shipment never moves. The warehouse doesn’t survive the night."
         }
       ]
     }
   ],
-  "tip": "Even saved cookies can betray their owner. Never leave a logged-in session behind - it's like handing over your keys to a thief.",
-  "dialogue": [
-    "c2_d0",
-    "c2_d1",
-    "c2_d2",
-    "c2_d3"
-  ]
+  "tip": "Even saved cookies can betray their owner. Never leave a logged-in session behind — it's like handing over your keys to a thief.",
+  "dialogue": ["c2_d0", "c2_d1", "c2_d2", "c2_d3"]
 }
