@@ -6,31 +6,54 @@
 dialogues = {
     "cookies_and_cache": {
         "c2_d0": {
-            "speaker": "You",
+            "speaker": "Narrator",
             "lines": [
-                "Dock 23... not the nicest part of town.",
-                "But then again, neither am I."
+                "As a private eye, you often get hired to look into things the police usually won’t.",
+                "Like a missing shipment of guns from the DeadLock Crew.",
+                "It appears from the sparse information you were given — as usual — that one of the local mobs doesn’t want the police involved.",
+                "You should start your search where the shipment vanished.",
+                "Looks like you’re visiting Dock 23."
             ]
         },
         "c2_d1": {
             "speaker": "Narrator",
             "lines": [
-                "The sticky note practically screams 'I am the password.'",
-                "Criminals are so confident, it’s almost charming."
+                "Outside the dock house, fog rolls in thick — San Francisco style.",
+                "The streetlamp flickers. Something smells... fishy, and not just from the harbor.",
+                "A locked door greets you. No welcome mat here.",
+                "The dumpster nearby? Ripe with secrets and something sharp — a crowbar."
             ]
         },
         "c2_d2": {
-            "speaker": "You",
+            "speaker": "Narrator",
             "lines": [
-                "Cookies still in the browser.",
-                "Amateurs. I’m in their email and it’s worse than I thought."
+                "Inside now, facing the main dock door.",
+                "A shipping terminal glows dim in the dark — it wants a password.",
+                "Good thing the sticky note stuck to the monitor makes cybercrime feel like child’s play: 'pass123'.",
+                "You mutter, 'They really do put the organized in organized crime.'",
+                "Nearby, the digital truck scale shows the last load left feather-light.",
+                "Something’s not adding up. You head deeper."
             ]
         },
         "c2_d3": {
             "speaker": "Narrator",
             "lines": [
-                "The more I dig, the more I realize —",
-                "these guns never left the dock. Only the loyalty did."
+                "The hallway creaks under your boots. You swing around to the back half of the warehouse.",
+                "One door’s labeled 'Office'.",
+                "Time to knock with a lockpick."
+            ]
+        },
+        "c2_d4": {
+            "speaker": "Narrator",
+            "lines": [
+                "Inside the office, dust motes dance in a sliver of light.",
+                "Filing cabinets are stuffed with tallies — a paper trail of guns incoming.",
+                "On the desk, a photo with a handwritten date. Sentimental? Or sloppy?",
+                "You use the date as the password. Jackpot — the computer unlocks, logged into someone’s email.",
+                "Cookies still active. The inbox? Smoking hot.",
+                "An email exchange reveals it all — the guy running shipments is turning coat.",
+                "He’s selling the entire shipment — and the warehouse’s contents — to a rival gang.",
+                "You sit back in the creaky chair, weighing the next step."
             ]
         }
     }
