@@ -1,10 +1,9 @@
 {
   "title": "Cookies & Cache",
-  "intro": "Dock 23. Late night. Something doesn't smell right, and it's not just the fish market. A shipment went missing, and you're the only one smart enough to follow the crumbs.",
-  "overview": "As a private eye, you often get hired to look into things the police usually won't. Like a missing shipment of guns from the DeadLock Crew. It appears from the sparse information I was given (as usual), it's not surprising that one of the local mobs doesn't want the police involved. I should start my search where the shipment vanished, looks like we are visiting dock 23.",
+  "overview": "As a private eye, you often get hired to look into things the police usually won’t...\n[full overview text goes here]",
   "settings": [
     {
-      "name": "Setting #1: Outside a dock house like in San Francisco",
+      "name": "Outside a dock house like in San Francisco",
       "interactables": [
         "Locked door (player needs a crowbar to open the door)",
         "Tire tracks (showcases the truck did leave the warehouse)",
@@ -12,28 +11,28 @@
       ]
     },
     {
-      "name": "Setting #2: Inside the dock house facing towards the door",
+      "name": "Inside the dock house facing towards the door",
       "interactables": [
-        "Shipping terminal (needs password. Shows where the scheduled shipment was supposed to go. Main character makes remark about how they put the 'organized' into organized crime)",
+        "Shipping terminal (needs password. Shows where the scheduled shipment was supposed to go...)",
         "Sticky note left on computer (contains login information)",
-        "Digital truck scale (shows logs of the weight of the trucks before each shipment. Reveals that the last truck was extremely light compared to the others.)",
+        "Digital truck scale (logs of the weight of the trucks...)",
         "Hallway (leads to the back half of the warehouse)"
       ]
     },
     {
-      "name": "Setting #3: Inside the dock house facing towards the back",
+      "name": "Inside the dock house facing towards the back",
       "interactables": [
         "Hallway (leads to the front half of the warehouse)",
         "Office (contains more clues in the next room)"
       ]
     },
     {
-      "name": "Setting #4: Inside the office",
+      "name": "Inside the office",
       "interactables": [
-        "Filing cabinets (inside is a written report on the amount of guns that have entered the warehouse)",
+        "Filing cabinets (written report on the amount of guns...)",
         "Photograph on the desk (has a date written on it)",
-        "Computer on the desk (After breaking into the computer using the date on the photograph, the player can login to the email of the last user, due to remaining cookies from the last session)",
-        "Email exchange inside computer (Email chain showing that the current person in charge of the shipments is a turncoat. They are planning on selling the weapons in the shipment and everything in the warehouse to a rival gang.)"
+        "Computer on the desk (player can log into the email...)",
+        "Email exchange (turncoat revealed planning to sell weapons)"
       ]
     }
   ],
@@ -41,17 +40,19 @@
   "choices": [
     {
       "text": "Do as Hired. Report back to the gang the information you have found.",
-      "result": "The DeadLock Crew nods and pays up. What they do with the traitor? Not your problem."
+      "result": "The DeadLock Crew nods and pays up. What they do with the traitor? Not your problem.",
+      "tip": "Sometimes doing the job means ignoring the fallout. Don’t mistake loyalty for safety."
     },
     {
       "text": "Good Citizen. Report the weapon shipment/turncoat information to the police.",
-      "result": "Anonymous tips lead to sirens in the night. You watch from the shadows, conscience clean."
+      "result": "Anonymous tips lead to sirens in the night. You watch from the shadows, conscience clean.",
+      "tip": "Doing the right thing doesn't always mean staying safe — but at least you sleep better."
     },
     {
       "text": "Sellout. Sell the information to a rival gang, enabling them to steal the shipment.",
-      "result": "You get your payday — and they get the drop. The dock never sees another shipment again."
+      "result": "You get your payday — and they get the drop. The dock never sees another shipment again.",
+      "tip": "When money talks, morals walk. But blood has a way of finding its way back to your door."
     }
   ],
-  "tip": "Never leave cookies behind — they remember everything you've done. One forgotten login is all it takes for someone to get inside your life.",
   "dialogue": ["c2_d0", "c2_d1", "c2_d2", "c2_d3"]
 }
