@@ -1,0 +1,41 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Pygame or Python cache folders
+*.log
+*.tmp
+
+# SQLite database (if user-specific)
+db/*.db
+
+# Environment files
+.env
+*.env
+*.venv/
+.venv/
+venv/
+
+# MacOS or Windows system files
+.DS_Store
+Thumbs.db
+
+# Backup or autosave files
+*.bak
+*.swp
+*.swo
+*~
+
+# PyInstaller / build folders
+build/
+dist/
+*.spec
+
+# IDE/editor configs
+.vscode/
+.idea/
+*.code-workspace
+
+# Zip files or generated bundles
+*.zip
