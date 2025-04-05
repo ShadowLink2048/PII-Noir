@@ -81,6 +81,11 @@ python game/main.py
 ## 💡 Overview
 PII Noir is a noir-style investigative game where players explore digital environments to uncover data privacy breaches and digital clues. Designed around a rich narrative, the gameplay guides users through a structured sequence of dialogue, investigations, and moral decisions.
 
+# Known issues if any
+-**On the final Screen it will say to click or push any key to continue... at this point you will have to input a keyboard key strick of some kind as the mouse button click will not work.**
+
+
+
 ---
 
 ## ✅ Features
