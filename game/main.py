@@ -5,25 +5,23 @@ import os
 from dialogue import get_dialogue
 from story import Story
 
+# --- Ensure required folders exist ---
+os.makedirs("../data", exist_ok=True)  # Ensures the data directory is present for case files
 
-
-
-# Ensure the required data directory exists for the game to load properly
-os.makedirs("../data", exist_ok=True)
-
-# Output confirmation message
-"✅ '../data' directory has been created (or already exists). You should now be able to run the game without a FileNotFoundError."
-
-
+# --- Initialize Pygame and screen ---
 pygame.init()
 WIDTH, HEIGHT = 800, 600
 screen = pygame.display.set_mode((WIDTH, HEIGHT), pygame.RESIZABLE)
 pygame.display.set_caption("PII Noir - Case Selector")
+
+# --- Constants ---
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
 FONT = pygame.font.SysFont("couriernew", 24)
 
+# --- Utility Functions ---
 def draw_text(surface, text, x, y, max_width=700, font=FONT, color=WHITE, spacing=5):
+    """Draws multi-line text within a width limit."""
     words = text.split(" ")
     lines = []
     line = ""
@@ -45,6 +43,7 @@ def draw_text(surface, text, x, y, max_width=700, font=FONT, color=WHITE, spacin
     return y
 
 def draw_button(surface, text, rect, color=(100, 100, 100), text_color=WHITE, font=FONT, padding=10, max_width=None):
+    """Draws a wrapped text button and adjusts height."""
     if max_width is None:
         max_width = rect.width - 2 * padding
 
@@ -73,10 +72,14 @@ def draw_button(surface, text, rect, color=(100, 100, 100), text_color=WHITE, fo
         surface.blit(label, label_rect)
 
 def list_cases(folder="../data"):
+    """Returns a sorted list of JSON case files."""
     return sorted([f for f in os.listdir(folder) if f.endswith(".json")])
 
+# --- Main Game Loop ---
 def main():
     global screen, WIDTH, HEIGHT
+
+    # Game state variables
     current_screen = "menu"
     story = None
     story_id = ""
@@ -91,11 +94,11 @@ def main():
     choice_selected = None
     case_files = list_cases()
 
-
     clock = pygame.time.Clock()
     running = True
 
     while running:
+        # --- Event Handling ---
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
@@ -104,6 +107,7 @@ def main():
                 WIDTH, HEIGHT = event.w, event.h
                 screen = pygame.display.set_mode((WIDTH, HEIGHT), pygame.RESIZABLE)
 
+            # --- Handle Main Menu Click ---
             elif current_screen == "menu" and event.type == pygame.MOUSEBUTTONDOWN:
                 mouse_pos = pygame.mouse.get_pos()
                 for i, button in enumerate(button_rects):
@@ -119,33 +123,33 @@ def main():
                         visited_interactables = set()
                         current_screen = "dialogue" if showing_dialogue else "intro"
 
+            # --- Advance Dialogue ---
             elif current_screen == "dialogue" and event.type in (pygame.KEYDOWN, pygame.MOUSEBUTTONDOWN):
                 dialogue_index += 1
                 if dialogue_index >= len(story.get_dialogue_ids()):
                     current_screen = "intro"
                     showing_dialogue = False
 
+            # --- Move from Intro to Investigation ---
             elif current_screen == "intro" and event.type in (pygame.KEYDOWN, pygame.MOUSEBUTTONDOWN):
                 current_screen = "investigation_menu"
 
+            # --- Handle Investigation Menu Clicks ---
             elif current_screen == "investigation_menu" and event.type == pygame.MOUSEBUTTONDOWN:
                 mouse_pos = pygame.mouse.get_pos()
-
-                # Check setting buttons first
                 for i, button in enumerate(setting_button_rects):
                     if button.collidepoint(mouse_pos):
                         if i in visited_settings:
-                            continue # 🔄 skip this one visit others
+                            continue
                         selected_setting_index = i
                         selected_interactable_index = 0
-                        visited_interactables = set()  # if you want to reset interactables only
+                        visited_interactables = set()
                         current_screen = "investigation_detail"
-                        break # Stop loop once a button is hit
-
-                # Check the continue button separately
+                        break
                 if continue_button_rect and continue_button_rect.collidepoint(mouse_pos):
                     current_screen = "choices"
 
+            # --- Investigation Detail Progression ---
             elif current_screen == "investigation_detail" and event.type in (pygame.KEYDOWN, pygame.MOUSEBUTTONDOWN):
                 setting = story.get_settings()[selected_setting_index]
                 interactables = setting.get("interactables", [])
@@ -164,6 +168,7 @@ def main():
                     selected_setting_index = None
                     current_screen = "investigation_menu"
 
+            # --- Handle Choice Selection ---
             elif current_screen == "choices" and event.type == pygame.MOUSEBUTTONDOWN:
                 mouse_pos = pygame.mouse.get_pos()
                 for i, button in enumerate(button_rects):
@@ -171,12 +176,15 @@ def main():
                         choice_selected = i
                         current_screen = "result"
 
+            # --- Return to Menu after Result ---
             elif current_screen == "result" and event.type in (pygame.KEYDOWN, pygame.MOUSEBUTTONDOWN):
                 current_screen = "menu"
                 choice_selected = None
 
+        # --- Drawing Section ---
         screen.fill(BLACK)
 
+        # --- Draw Main Menu ---
         if current_screen == "menu":
             draw_text(screen, "PII Noir - Select a Case", 40, 40)
             button_rects = []
@@ -186,6 +194,7 @@ def main():
                 draw_button(screen, title, rect)
                 button_rects.append(rect)
 
+        # --- Draw Dialogue Screen ---
         elif current_screen == "dialogue" and showing_dialogue:
             dialogue_ids = story.get_dialogue_ids()
             if dialogue_index < len(dialogue_ids):
@@ -200,11 +209,12 @@ def main():
                         y += 5
                     draw_text(screen, "Click or press any key to continue...", 40, HEIGHT - 40, WIDTH - 80)
 
+        # --- Draw Intro Screen ---
         elif current_screen == "intro":
             y = draw_text(screen, story.get_intro(), 40, 40, WIDTH - 80)
             draw_text(screen, "Click or press any key to continue...", 40, HEIGHT - 40, WIDTH - 80)
 
-
+        # --- Draw Investigation Menu ---
         elif current_screen == "investigation_menu":
             y = draw_text(screen, "Areas Available to Investigate:", 40, 40, WIDTH - 80)
             setting_button_rects = []
@@ -221,7 +231,7 @@ def main():
                 draw_button(screen, "Continue to Decision", rect)
                 continue_button_rect = rect
 
-
+        # --- Draw Investigation Details ---
         elif current_screen == "investigation_detail" and selected_setting_index is not None:
             setting = story.get_settings()[selected_setting_index]
             interactables = setting.get("interactables", [])
@@ -236,6 +246,7 @@ def main():
                     y = draw_text(screen, item, 60, y + 10, WIDTH - 100)
                 draw_text(screen, "Click or press any key to go back...", 40, HEIGHT - 40, WIDTH - 80)
 
+        # --- Draw Choices ---
         elif current_screen == "choices":
             y = draw_text(screen, "What do you do?", 40, 40, WIDTH - 80)
             button_rects = []
@@ -244,6 +255,7 @@ def main():
                 draw_button(screen, f"{i + 1}. {option['text']}", rect)
                 button_rects.append(rect)
 
+        # --- Draw Result ---
         elif current_screen == "result":
             if choice_selected is not None:
                 choice_data = story.get_choices()[choice_selected]
@@ -259,6 +271,7 @@ def main():
         pygame.display.flip()
         clock.tick(30)
 
+    # --- Cleanup on Exit ---
     pygame.quit()
     sys.exit()
 
