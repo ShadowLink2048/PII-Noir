@@ -5,6 +5,9 @@ import os
 from dialogue import get_dialogue
 from story import Story
 
+
+
+
 # Ensure the required data directory exists for the game to load properly
 os.makedirs("../data", exist_ok=True)
 
@@ -79,13 +82,15 @@ def main():
     story_id = ""
     dialogue_index = 0
     showing_dialogue = False
-    button_rects = []
+    setting_button_rects = []
+    continue_button_rect = None
     selected_setting_index = None
     selected_interactable_index = 0
     visited_settings = set()
     visited_interactables = set()
     choice_selected = None
     case_files = list_cases()
+
 
     clock = pygame.time.Clock()
     running = True
@@ -125,15 +130,20 @@ def main():
 
             elif current_screen == "investigation_menu" and event.type == pygame.MOUSEBUTTONDOWN:
                 mouse_pos = pygame.mouse.get_pos()
-                for i, button in enumerate(button_rects):
+
+                # Check setting buttons first
+                for i, button in enumerate(setting_button_rects):
                     if button.collidepoint(mouse_pos):
+                        if i in visited_settings:
+                            continue # 🔄 skip this one visit others
                         selected_setting_index = i
                         selected_interactable_index = 0
-                        visited_interactables = set()
+                        visited_interactables = set()  # if you want to reset interactables only
                         current_screen = "investigation_detail"
+                        break # Stop loop once a button is hit
 
-            elif current_screen == "investigation_menu" and event.type in (pygame.KEYDOWN, pygame.MOUSEBUTTONDOWN):
-                if len(visited_settings) == len(story.get_settings()):
+                # Check the continue button separately
+                if continue_button_rect and continue_button_rect.collidepoint(mouse_pos):
                     current_screen = "choices"
 
             elif current_screen == "investigation_detail" and event.type in (pygame.KEYDOWN, pygame.MOUSEBUTTONDOWN):
@@ -194,16 +204,23 @@ def main():
             y = draw_text(screen, story.get_intro(), 40, 40, WIDTH - 80)
             draw_text(screen, "Click or press any key to continue...", 40, HEIGHT - 40, WIDTH - 80)
 
+
         elif current_screen == "investigation_menu":
             y = draw_text(screen, "Areas Available to Investigate:", 40, 40, WIDTH - 80)
-            button_rects = []
+            setting_button_rects = []
+            continue_button_rect = None
+
             for i, setting in enumerate(story.get_settings()):
                 status = "✓" if i in visited_settings else ""
                 rect = pygame.Rect(60, y + 20 + i * 60, WIDTH - 120, 40)
                 draw_button(screen, f"{status} Investigate {setting['name']}", rect)
-                button_rects.append(rect)
+                setting_button_rects.append(rect)
+
             if len(visited_settings) == len(story.get_settings()):
-                draw_text(screen, "Click or press any key to proceed...", 40, HEIGHT - 40, WIDTH - 80)
+                rect = pygame.Rect(60, HEIGHT - 80, WIDTH - 120, 40)
+                draw_button(screen, "Continue to Decision", rect)
+                continue_button_rect = rect
+
 
         elif current_screen == "investigation_detail" and selected_setting_index is not None:
             setting = story.get_settings()[selected_setting_index]
